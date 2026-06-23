@@ -108,14 +108,27 @@
       line-height: 1.6;
     }
 
+    .footer-social {
+      margin: 14px 0;
+    }
+
     .footer-link {
-      margin: 0 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 6px 10px;
       color: white;
       text-decoration: none;
+      font-weight: 500;
     }
 
     .footer-link:hover {
       opacity: 0.75;
+      text-decoration: none;
+    }
+
+    .footer-icon {
+      font-size: 22px;
     }
   </style>
 </head>
@@ -174,6 +187,13 @@
             <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-indigo"></i>
             <a class="link-clean" href="tel:+353899547804">
               +353 89 954 7804
+            </a>
+          </p>
+
+          <p>
+            <i class="fa fa-whatsapp fa-fw w3-margin-right w3-large w3-text-indigo"></i>
+            <a class="link-clean" href="https://wa.me/447777164892" target="_blank">
+              WhatsApp
             </a>
           </p>
 
@@ -682,17 +702,27 @@
 <footer class="w3-container w3-indigo w3-center w3-margin-top">
   <p>Find me online</p>
 
-  <a href="https://github.com/jnramoos-hue" target="_blank" aria-label="GitHub">
-    <i class="fa fa-github w3-hover-opacity w3-xlarge w3-margin-right"></i>
-  </a>
+  <div class="footer-social">
+    <a href="https://github.com/jnramoos-hue" target="_blank" aria-label="GitHub" class="footer-link">
+      <i class="fa fa-github footer-icon w3-hover-opacity"></i>
+      <span>GitHub</span>
+    </a>
 
-  <a href="https://www.linkedin.com/in/jsilvarjnr/" target="_blank" aria-label="LinkedIn">
-    <i class="fa fa-linkedin w3-hover-opacity w3-xlarge w3-margin-right"></i>
-  </a>
+    <a href="https://www.linkedin.com/in/jsilvarjnr/" target="_blank" aria-label="LinkedIn" class="footer-link">
+      <i class="fa fa-linkedin footer-icon w3-hover-opacity"></i>
+      <span>LinkedIn</span>
+    </a>
 
-  <a href="mailto:jramoos@outlook.com" aria-label="Email">
-    <i class="fa fa-envelope w3-hover-opacity w3-xlarge"></i>
-  </a>
+    <a href="mailto:jramoos@outlook.com" aria-label="Email" class="footer-link">
+      <i class="fa fa-envelope footer-icon w3-hover-opacity"></i>
+      <span>Email</span>
+    </a>
+
+    <a href="https://wa.me/447777164892" target="_blank" aria-label="WhatsApp" class="footer-link">
+      <i class="fa fa-whatsapp footer-icon w3-hover-opacity"></i>
+      <span>WhatsApp</span>
+    </a>
+  </div>
 
   <p>
     Online CV built with HTML, CSS and W3.CSS
