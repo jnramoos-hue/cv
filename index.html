@@ -25,13 +25,18 @@
       font-family: "Roboto", sans-serif;
     }
 
+    body {
+      background-color: #f3f4f6;
+    }
+
     .profile-title {
       font-size: 15px;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .section-text {
-      line-height: 1.7;
+      line-height: 1.75;
+      color: #333;
     }
 
     .link-clean {
@@ -41,6 +46,77 @@
     .link-clean:hover {
       text-decoration: underline;
     }
+
+    .tag {
+      display: inline-block;
+      margin: 4px 4px 4px 0;
+      padding: 5px 10px;
+      border-radius: 20px;
+      background-color: #eef2ff;
+      color: #3730a3;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 20px 0;
+      padding-left: 24px;
+      border-left: 3px solid #3f51b5;
+    }
+
+    .timeline-item {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -33px;
+      top: 4px;
+      width: 15px;
+      height: 15px;
+      background-color: #3f51b5;
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 0 2px #3f51b5;
+    }
+
+    .timeline-title {
+      font-weight: 700;
+      color: #3f51b5;
+      margin-bottom: 4px;
+    }
+
+    .timeline-subtitle {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 6px;
+    }
+
+    .highlight-box {
+      background-color: #eef2ff;
+      border-left: 5px solid #3f51b5;
+      padding: 14px 16px;
+      margin: 16px 0;
+      border-radius: 4px;
+    }
+
+    .small-text {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-link {
+      margin: 0 8px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      opacity: 0.75;
+    }
   </style>
 </head>
 
@@ -49,7 +125,7 @@
 <!-- Page Container -->
 <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
-  <!-- The Grid -->
+  <!-- Grid -->
   <div class="w3-row-padding">
 
     <!-- Left Column -->
@@ -60,9 +136,17 @@
         <!-- Name -->
         <div class="w3-container">
           <h2>Jose da Silva Ramos Junior</h2>
+
           <p class="profile-title">
             Junior Front-end Developer in Training<br>
             React | JavaScript | TypeScript | Tailwind CSS
+          </p>
+
+          <p class="small-text">
+            <i class="fa fa-globe fa-fw w3-margin-right w3-text-indigo"></i>
+            <a class="link-clean" href="https://jnramoos-hue.github.io/cv/" target="_blank">
+              jnramoos-hue.github.io/cv/
+            </a>
           </p>
         </div>
 
@@ -81,12 +165,16 @@
 
           <p>
             <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-indigo"></i>
-            <a class="link-clean" href="mailto:jramoos@outlook.com">jramoos@outlook.com</a>
+            <a class="link-clean" href="mailto:jramoos@outlook.com">
+              jramoos@outlook.com
+            </a>
           </p>
 
           <p>
             <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-indigo"></i>
-            <a class="link-clean" href="tel:+353899547804">+353 89 954 7804</a>
+            <a class="link-clean" href="tel:+353899547804">
+              +353 89 954 7804
+            </a>
           </p>
 
           <p>
@@ -105,18 +193,13 @@
 
           <hr>
 
-          <!-- Skills -->
+          <!-- Tech Skills -->
           <p class="w3-large">
             <b>
-              <i class="fa fa-asterisk fa-fw w3-margin-right w3-text-indigo"></i>
-              Skills
+              <i class="fa fa-code fa-fw w3-margin-right w3-text-indigo"></i>
+              Tech Skills
             </b>
           </p>
-
-          <p>Front-end Development</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:70%">70%</div>
-          </div>
 
           <p>HTML, CSS & Responsive Design</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
@@ -128,9 +211,9 @@
             <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:65%">65%</div>
           </div>
 
-          <p>React & TypeScript</p>
+          <p>DOM Manipulation</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:50%">50%</div>
+            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:65%">65%</div>
           </div>
 
           <p>Tailwind CSS</p>
@@ -138,14 +221,44 @@
             <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:65%">65%</div>
           </div>
 
+          <p>React & TypeScript</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:50%">50%</div>
+          </div>
+
           <p>Git & GitHub</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
             <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:65%">65%</div>
           </div>
 
-          <p>Problem Solving & Process Discipline</p>
+          <br>
+
+          <!-- Transferable Skills -->
+          <p class="w3-large">
+            <b>
+              <i class="fa fa-cogs fa-fw w3-margin-right w3-text-indigo"></i>
+              Transferable Skills
+            </b>
+          </p>
+
+          <p>Problem Solving</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
             <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:85%">85%</div>
+          </div>
+
+          <p>Process Discipline</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:85%">85%</div>
+          </div>
+
+          <p>Quality Awareness</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:80%">80%</div>
+          </div>
+
+          <p>Teamwork & Communication</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:80%">80%</div>
           </div>
 
           <br>
@@ -173,7 +286,7 @@
           <!-- Current Focus -->
           <p class="w3-large w3-text-theme">
             <b>
-              <i class="fa fa-code fa-fw w3-margin-right w3-text-indigo"></i>
+              <i class="fa fa-compass fa-fw w3-margin-right w3-text-indigo"></i>
               Current Focus
             </b>
           </p>
@@ -183,6 +296,7 @@
           <p>TypeScript Basics</p>
           <p>Tailwind CSS Layouts</p>
           <p>GitHub Portfolio</p>
+          <p>Front-end Projects</p>
 
           <br>
         </div>
@@ -204,33 +318,175 @@
 
         <p class="section-text">
           I am a Junior Front-end Developer in training, currently focused on building modern,
-          responsive and user-friendly web interfaces using HTML, CSS, JavaScript, React,
+          responsive and user-friendly web interfaces with HTML, CSS, JavaScript, React,
           TypeScript and Tailwind CSS.
         </p>
 
         <p class="section-text">
-          My journey into technology is driven by discipline, consistency and the desire to build
-          a better future through practical skills. I am developing my technical foundation step by
-          step, combining academic learning, hands-on exercises and portfolio projects.
+          My path into technology started after a major life transition. I left Brazil and moved
+          abroad with limited English, facing the challenge of rebuilding my life in a new country.
+          I lived in London, worked hard in different roles and later moved to Scotland, where I
+          continued developing discipline, resilience and a strong work ethic.
         </p>
 
         <p class="section-text">
-          Before moving fully into software development, I built strong professional habits in
-          fast-paced operational environments, where attention to detail, quality standards,
-          workflow organization and problem-solving were essential every day.
+          Over time, I built professional experience in demanding environments, including food
+          delivery, kitchen support, warehouse operations and food production. These experiences
+          taught me consistency, attention to detail, responsibility, teamwork and the importance
+          of learning continuously.
         </p>
 
+        <div class="highlight-box">
+          <p class="section-text">
+            After earning trust and growing within production environments, I made a deliberate
+            decision: I did not want to limit my future to the same path. I wanted to keep evolving,
+            build a career in technology and create better opportunities for my life and my family.
+          </p>
+        </div>
+
         <p class="section-text">
-          Today, I apply the same mindset to code: learning the fundamentals first, practicing with
-          real examples, documenting my progress and improving one project at a time.
+          Today, I apply the same discipline to software development. My current focus is to build
+          strong fundamentals, practice consistently, document my progress on GitHub and develop
+          real portfolio evidence through front-end projects.
         </p>
+      </div>
+
+      <!-- Tech Transition Timeline -->
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16">
+          <i class="fa fa-road fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>
+          Transition Into Technology
+        </h2>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-title">Brazil to the UK</div>
+            <div class="timeline-subtitle">Starting from zero in a new environment</div>
+            <p class="section-text">
+              I left Brazil and moved abroad with limited English, learning how to adapt,
+              communicate and keep moving forward in a completely different environment.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">London</div>
+            <div class="timeline-subtitle">Building resilience through hard work</div>
+            <p class="section-text">
+              I faced the first challenges of life abroad, working in physically demanding roles
+              and learning the value of persistence, discipline and responsibility.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Scotland</div>
+            <div class="timeline-subtitle">From operations to process awareness</div>
+            <p class="section-text">
+              In Scotland, I worked in warehouse and production environments, developing strong
+              attention to detail, process discipline, quality awareness and teamwork.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Decision to Study Technology</div>
+            <div class="timeline-subtitle">A new chapter focused on growth</div>
+            <p class="section-text">
+              I decided to start a degree in technology because I wanted to keep evolving,
+              learn how systems are built and create a career with more freedom, purpose and
+              long-term opportunities.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Academic Timeline -->
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16">
+          <i class="fa fa-graduation-cap fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>
+          Learning Timeline — FIAP
+        </h2>
+
+        <p class="section-text">
+          In the first months of my degree, I have been building a complete foundation that connects
+          software engineering, programming logic, databases, UX/UI, web development and version control.
+        </p>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-title">Phase 01 — Software, Business and Logic Foundations</div>
+            <div class="timeline-subtitle">Understanding how systems are planned before they are coded</div>
+            <p class="section-text">
+              I studied software engineering, requirements, user stories, agile methods, UML,
+              software architecture, business models, financial domain concepts, artificial
+              intelligence foundations and the first steps of programming logic.
+            </p>
+
+            <span class="tag">Software Engineering</span>
+            <span class="tag">Agile</span>
+            <span class="tag">Requirements</span>
+            <span class="tag">UML</span>
+            <span class="tag">Programming Logic</span>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Phase 02 — Programming Logic, UX and Interfaces</div>
+            <div class="timeline-subtitle">Learning how logic becomes user experience</div>
+            <p class="section-text">
+              I strengthened programming logic with Python, conditional structures, loops, lists,
+              dictionaries and functions. I also studied UX principles, interface design, Figma,
+              design systems and chatbot fundamentals.
+            </p>
+
+            <span class="tag">Python</span>
+            <span class="tag">Functions</span>
+            <span class="tag">UX/UI</span>
+            <span class="tag">Figma</span>
+            <span class="tag">Chatbots</span>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Phase 03 — Data, Persistence and Databases</div>
+            <div class="timeline-subtitle">Understanding how applications store and organize information</div>
+            <p class="section-text">
+              I studied data modeling, entity-relationship diagrams, normalization, Oracle SQL,
+              database architecture, JSON, file persistence, chatbot analytics and the importance
+              of organizing data correctly for software systems.
+            </p>
+
+            <span class="tag">Data Modeling</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Oracle</span>
+            <span class="tag">JSON</span>
+            <span class="tag">Data Integrity</span>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Phase 04 — Web Development and Front-end Foundations</div>
+            <div class="timeline-subtitle">Building interfaces with HTML, CSS, Tailwind CSS and JavaScript</div>
+            <p class="section-text">
+              I am currently focused on web development fundamentals, including HTML semantics,
+              CSS, box model, forms, tables, Flexbox, Grid, responsive design, Tailwind CSS,
+              JavaScript, DOM manipulation, modules, Git and GitHub.
+            </p>
+
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">DOM</span>
+            <span class="tag">GitHub</span>
+          </div>
+
+        </div>
       </div>
 
       <!-- Experience -->
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <h2 class="w3-text-grey w3-padding-16">
           <i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>
-          Experience
+          Professional Experience
         </h2>
 
         <div class="w3-container">
@@ -249,13 +505,13 @@
           </p>
 
           <p class="section-text">
-            Reviewed production information, supported workstation organization and contributed to
-            maintaining continuous production flow while following health, safety and hygiene standards.
+            Supported workstation organization, followed production standards and contributed to
+            maintaining a continuous workflow under pressure.
           </p>
 
           <p class="section-text">
-            Developed transferable skills such as attention to detail, process discipline,
-            communication, teamwork and practical problem-solving.
+            Developed transferable skills such as process thinking, attention to detail,
+            problem-solving, communication, teamwork and ownership.
           </p>
 
           <hr>
@@ -272,18 +528,13 @@
           </h6>
 
           <p class="section-text">
-            Worked in warehouse operations using digital scanning systems to support inventory
-            tracking, order processing and product flow.
+            Worked in warehouse operations using scanning systems to support inventory tracking,
+            order processing and product flow.
           </p>
 
           <p class="section-text">
             Performed picking, packing, item verification and quality checks in a high-volume
-            environment, while meeting performance and accuracy expectations.
-          </p>
-
-          <p class="section-text">
-            Strengthened discipline, time management, attention to detail and the ability to work
-            with structured processes and operational data.
+            environment, developing accuracy, discipline and time management.
           </p>
 
           <hr>
@@ -305,13 +556,8 @@
           </p>
 
           <p class="section-text">
-            Checked finished products, verified packaging details and worked with the team to keep
-            operations organized and consistent.
-          </p>
-
-          <p class="section-text">
-            Built a strong foundation in reliability, consistency, teamwork and attention to operational
-            standards.
+            Built a strong foundation in reliability, consistency, teamwork and attention to
+            operational standards.
           </p>
 
           <br>
@@ -321,7 +567,7 @@
       <!-- Education -->
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <h2 class="w3-text-grey w3-padding-16">
-          <i class="fa fa-graduation-cap fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>
+          <i class="fa fa-university fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>
           Education
         </h2>
 
@@ -337,7 +583,7 @@
 
           <p class="section-text">
             Academic program focused on software development, web technologies, programming logic,
-            databases, software engineering, UX/UI, Git, GitHub and systems analysis.
+            software engineering, databases, UX/UI, Git, GitHub and systems analysis.
           </p>
 
           <hr>
@@ -365,7 +611,7 @@
       <!-- Learning & Development -->
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <h2 class="w3-text-grey w3-padding-16">
-          <i class="fa fa-code fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>
+          <i class="fa fa-laptop fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>
           Learning & Development
         </h2>
 
@@ -375,7 +621,7 @@
           </h5>
 
           <p class="section-text">
-            Currently strengthening my knowledge in HTML, CSS, JavaScript, responsive design,
+            Currently strengthening knowledge in HTML, CSS, JavaScript, responsive design,
             DOM manipulation, Tailwind CSS, Git, GitHub, React and TypeScript.
           </p>
 
