@@ -1,340 +1,929 @@
 <!DOCTYPE html>
-<!-- Reference article: https://www.w3schools.com/howto/howto_website_create_resume.asp -->
-<!-- Font Awesome icons: https://fontawesome.com/v4/icons/ -->
 <html lang="en">
 
 <head>
   <title>Jose da Silva Ramos Junior | Online CV</title>
 
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="description" content="Online CV of Jose da Silva Ramos Junior, Junior Front-end Developer in training based in Ireland.">
+  <meta name="keywords" content="Junior Front-end Developer, React, JavaScript, TypeScript, Tailwind CSS, Web Development, Ireland">
+  <meta name="author" content="Jose da Silva Ramos Junior">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <!-- Fonts and Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+  
   <style>
-    html,
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: "Roboto", sans-serif;
+    :root {
+      --bg-body: #f5f7fa;
+      --bg-dark: #070b12;
+      --bg-dark-soft: #111827;
+      --bg-card: #ffffff;
+      --bg-card-soft: #f8fafc;
+
+      --text-main: #111827;
+      --text-muted: #64748b;
+      --text-soft: #94a3b8;
+      --text-light: #f8fafc;
+
+      --blue-dark: #1e3a8a;
+      --blue-main: #2563eb;
+      --blue-soft: #dbeafe;
+      --blue-pale: #eff6ff;
+
+      --border: #e5e7eb;
+      --shadow-soft: 0 14px 36px rgba(15, 23, 42, 0.08);
+      --shadow-strong: 0 26px 70px rgba(15, 23, 42, 0.14);
+
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background-color: #f3f4f6;
+      min-height: 100vh;
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--text-main);
+      background:
+              radial-gradient(circle at top left, rgba(37, 99, 235, 0.14), transparent 28%),
+              radial-gradient(circle at top right, rgba(30, 58, 138, 0.12), transparent 30%),
+              linear-gradient(180deg, #ffffff 0%, var(--bg-body) 100%);
+      line-height: 1.7;
     }
 
-    .profile-title {
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .section-text {
-      line-height: 1.75;
-      color: #333;
-    }
-
-    .link-clean {
+    a {
+      color: inherit;
       text-decoration: none;
     }
 
-    .link-clean:hover {
-      text-decoration: underline;
+    a:hover {
+      color: var(--blue-main);
     }
 
-    .tag {
-      display: inline-block;
-      margin: 4px 4px 4px 0;
-      padding: 5px 10px;
-      border-radius: 20px;
-      background-color: #eef2ff;
-      color: #3730a3;
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 32px auto 0;
+    }
+
+    /* Header / Hero */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      padding: 44px;
+      color: var(--text-light);
+      background:
+              linear-gradient(135deg, rgba(7, 11, 18, 0.98), rgba(17, 24, 39, 0.98)),
+              radial-gradient(circle at 85% 20%, rgba(37, 99, 235, 0.38), transparent 35%);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -160px;
+      top: -180px;
+      border-radius: 50%;
+      background: rgba(37, 99, 235, 0.20);
+      filter: blur(2px);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+              linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 8px 13px;
+      border-radius: var(--radius-pill);
+      color: #bfdbfe;
       font-size: 13px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin-bottom: 14px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.04;
+      letter-spacing: -0.055em;
+      color: #ffffff;
+    }
+
+    .hero-title {
+      margin-bottom: 18px;
+      color: #bfdbfe;
+      font-size: clamp(17px, 2vw, 22px);
+      font-weight: 700;
+    }
+
+    .hero-description {
+      max-width: 720px;
+      margin-bottom: 28px;
+      color: #cbd5e1;
+      font-size: 16px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 14px;
+      font-weight: 800;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, border 0.22s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: var(--bg-dark);
+      box-shadow: 0 16px 34px rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      color: var(--bg-dark);
+      box-shadow: 0 20px 42px rgba(255, 255, 255, 0.18);
+    }
+
+    .btn-secondary {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      color: #ffffff;
+      background: rgba(37, 99, 235, 0.24);
+      border-color: rgba(191, 219, 254, 0.42);
+    }
+
+    .hero-panel {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.065);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-panel-item {
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    }
+
+    .hero-panel-item:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .hero-panel span {
+      display: block;
+      margin-bottom: 3px;
+      color: #93c5fd;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-panel strong,
+    .hero-panel a {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .hero-panel p {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    /* Quick Cards */
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 22px 0;
+    }
+
+    .quick-card {
+      padding: 20px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(226, 232, 240, 0.92);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border 0.22s ease;
+    }
+
+    .quick-card:hover {
+      transform: translateY(-4px);
+      border-color: #bfdbfe;
+      box-shadow: var(--shadow-strong);
+    }
+
+    .quick-card i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 12px;
+      border-radius: 14px;
+      color: var(--blue-main);
+      background: var(--blue-soft);
+      font-size: 20px;
+    }
+
+    .quick-card span {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .quick-card strong {
+      color: var(--text-main);
+      font-size: 15px;
+    }
+
+    /* Layout */
+
+    .layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .sidebar,
+    .content-card {
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(226, 232, 240, 0.92);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 22px;
+      padding: 24px;
+    }
+
+    .content {
+      display: grid;
+      gap: 22px;
+    }
+
+    .content-card {
+      padding: 30px;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .content-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-header i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      color: var(--blue-dark);
+      background: var(--blue-soft);
+      font-size: 20px;
+    }
+
+    .section-header h2 {
+      color: var(--text-main);
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-text {
+      margin-bottom: 14px;
+      color: #334155;
+      font-size: 15.5px;
+    }
+
+    .highlight-box {
+      margin: 20px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--blue-main);
+      border-radius: var(--radius-md);
+      background: linear-gradient(90deg, var(--blue-pale), #ffffff);
+      color: #1e293b;
       font-weight: 500;
     }
 
+    /* Sidebar */
+
+    .sidebar-section {
+      margin-bottom: 28px;
+    }
+
+    .sidebar-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 14px;
+      color: var(--text-main);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      color: var(--blue-main);
+      font-size: 16px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--text-muted);
+      font-size: 14px;
+      word-break: break-word;
+    }
+
+    .contact-item i {
+      min-width: 18px;
+      margin-top: 4px;
+      color: var(--blue-main);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 11px;
+      border-radius: var(--radius-pill);
+      color: #334155;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      font-size: 13px;
+      font-weight: 700;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .pill:hover {
+      transform: translateY(-2px);
+      color: var(--blue-dark);
+      background: var(--blue-soft);
+    }
+
+    .language-item {
+      margin-bottom: 14px;
+    }
+
+    .language-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 7px;
+      color: #334155;
+      font-size: 14px;
+    }
+
+    .language-header strong {
+      color: var(--text-main);
+    }
+
+    .bar {
+      height: 9px;
+      overflow: hidden;
+      border-radius: var(--radius-pill);
+      background: #e5e7eb;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(90deg, var(--blue-dark), var(--blue-main));
+    }
+
+    /* Timeline */
+
     .timeline {
       position: relative;
-      margin: 20px 0;
-      padding-left: 24px;
-      border-left: 3px solid #3f51b5;
+      display: grid;
+      gap: 20px;
+      padding-left: 25px;
+      border-left: 2px solid #dbeafe;
     }
 
     .timeline-item {
-      margin-bottom: 24px;
       position: relative;
+      padding: 18px 18px 18px 20px;
+      border-radius: var(--radius-lg);
+      background: var(--bg-card-soft);
+      border: 1px solid #e2e8f0;
+      transition: transform 0.22s ease, border 0.22s ease, background 0.22s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateX(3px);
+      border-color: #bfdbfe;
+      background: #ffffff;
     }
 
     .timeline-item::before {
       content: "";
       position: absolute;
-      left: -33px;
-      top: 4px;
-      width: 15px;
-      height: 15px;
-      background-color: #3f51b5;
+      left: -34px;
+      top: 22px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
-      border: 3px solid #ffffff;
-      box-shadow: 0 0 0 2px #3f51b5;
+      background: var(--blue-main);
+      border: 4px solid #ffffff;
+      box-shadow: 0 0 0 2px #bfdbfe;
     }
 
     .timeline-title {
-      font-weight: 700;
-      color: #3f51b5;
       margin-bottom: 4px;
+      color: var(--text-main);
+      font-size: 16px;
+      font-weight: 800;
     }
 
     .timeline-subtitle {
+      margin-bottom: 8px;
+      color: var(--blue-dark);
       font-size: 14px;
-      color: #666;
-      margin-bottom: 6px;
+      font-weight: 700;
     }
 
-    .highlight-box {
-      background-color: #eef2ff;
-      border-left: 5px solid #3f51b5;
-      padding: 14px 16px;
-      margin: 16px 0;
-      border-radius: 4px;
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
     }
 
-    .small-text {
+    .tag {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      color: #1e3a8a;
+      background: #dbeafe;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* Experience */
+
+    .experience-item {
+      padding: 20px;
+      margin-bottom: 16px;
+      border-radius: var(--radius-lg);
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+    }
+
+    .experience-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .experience-item h3 {
+      margin-bottom: 4px;
+      color: var(--text-main);
+      font-size: 17px;
+      letter-spacing: -0.02em;
+    }
+
+    .experience-date {
+      margin-bottom: 10px;
+      color: var(--blue-dark);
       font-size: 14px;
-      line-height: 1.6;
+      font-weight: 800;
+    }
+
+    .experience-item li {
+      color: #334155;
+    }
+
+    /* Footer */
+
+    .footer {
+      margin-top: 22px;
+      padding: 36px 20px;
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      color: var(--text-light);
+      text-align: center;
+      background:
+              linear-gradient(135deg, rgba(7, 11, 18, 0.98), rgba(17, 24, 39, 0.98)),
+              radial-gradient(circle at center, rgba(37, 99, 235, 0.28), transparent 45%);
+    }
+
+    .footer h2 {
+      margin-bottom: 8px;
+      color: #ffffff;
+      font-size: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .footer p {
+      margin-bottom: 18px;
+      color: #cbd5e1;
     }
 
     .footer-social {
-      margin: 14px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
     }
 
     .footer-link {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      margin: 6px 10px;
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 15px;
+      border-radius: var(--radius-pill);
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      font-size: 14px;
+      font-weight: 800;
+      transition: transform 0.22s ease, background 0.22s ease, border 0.22s ease;
     }
 
     .footer-link:hover {
-      opacity: 0.75;
-      text-decoration: none;
+      transform: translateY(-2px);
+      color: #ffffff;
+      background: rgba(37, 99, 235, 0.36);
+      border-color: rgba(191, 219, 254, 0.52);
     }
 
-    .footer-icon {
-      font-size: 22px;
+    .footer-note {
+      margin-bottom: 0;
+      color: #94a3b8;
+      font-size: 13px;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 980px) {
+      .hero-content,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .quick-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 20px, 1180px);
+        margin-top: 16px;
+      }
+
+      .hero {
+        padding: 28px 22px;
+      }
+
+      .content-card,
+      .sidebar {
+        padding: 22px;
+      }
+
+      .quick-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions,
+      .footer-social {
+        flex-direction: column;
+      }
+
+      .btn,
+      .footer-link {
+        width: 100%;
+      }
     }
   </style>
 </head>
 
-<body class="w3-light-grey">
+<body>
 
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+<main class="page">
 
-  <!-- Grid -->
-  <div class="w3-row-padding">
+  <header class="hero">
+    <div class="hero-content">
 
-    <!-- Left Column -->
-    <div class="w3-third">
-
-      <div class="w3-white w3-text-grey w3-card-4">
-
-        <!-- Name -->
-        <div class="w3-container">
-          <h2>Jose da Silva Ramos Junior</h2>
-
-          <p class="profile-title">
-            Junior Front-end Developer in Training<br>
-            React | JavaScript | TypeScript | Tailwind CSS
-          </p>
-
-          <p class="small-text">
-            <i class="fa fa-globe fa-fw w3-margin-right w3-text-indigo"></i>
-            <a class="link-clean" href="https://jnramoos-hue.github.io/cv/" target="_blank">
-              jnramoos-hue.github.io/cv/
-            </a>
-          </p>
+      <section aria-labelledby="hero-title">
+        <div class="eyebrow">
+          <i class="fa fa-code" aria-hidden="true"></i>
+          Online CV • Front-end Development
         </div>
 
-        <div class="w3-container">
+        <h1 id="hero-title">Jose da Silva Ramos Junior</h1>
 
-          <!-- Contact -->
-          <p>
-            <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-indigo"></i>
-            Front-end Developer in Training
-          </p>
+        <p class="hero-title">
+          Junior Front-end Developer in Training
+        </p>
 
-          <p>
-            <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-indigo"></i>
-            Greystones, Co. Wicklow, Ireland
-          </p>
+        <p class="hero-description">
+          Building responsive and user-friendly web interfaces with HTML, CSS, JavaScript,
+          React, TypeScript and Tailwind CSS.
+        </p>
 
-          <p>
-            <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-indigo"></i>
-            <a class="link-clean" href="mailto:jramoos@outlook.com">
-              jramoos@outlook.com
-            </a>
-          </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://github.com/jnramoos-hue" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            View GitHub
+          </a>
 
-          <p>
-            <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-indigo"></i>
-            <a class="link-clean" href="tel:+353899547804">
-              +353 89 954 7804
-            </a>
-          </p>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/jsilvarjnr/" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+            LinkedIn
+          </a>
 
-          <p>
-            <i class="fa fa-whatsapp fa-fw w3-margin-right w3-large w3-text-indigo"></i>
-            <a class="link-clean" href="https://wa.me/447777164892" target="_blank">
-              WhatsApp
-            </a>
-          </p>
+          <a class="btn btn-secondary" href="mailto:jramoos@outlook.com">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            Email
+          </a>
 
-          <p>
-            <i class="fa fa-linkedin fa-fw w3-margin-right w3-large w3-text-indigo"></i>
-            <a class="link-clean" href="https://www.linkedin.com/in/jsilvarjnr/" target="_blank">
-              linkedin.com/in/jsilvarjnr
-            </a>
-          </p>
-
-          <p>
-            <i class="fa fa-github fa-fw w3-margin-right w3-large w3-text-indigo"></i>
-            <a class="link-clean" href="https://github.com/jnramoos-hue" target="_blank">
-              github.com/jnramoos-hue
-            </a>
-          </p>
-
-          <hr>
-
-          <!-- Tech Skills -->
-          <p class="w3-large">
-            <b>
-              <i class="fa fa-code fa-fw w3-margin-right w3-text-indigo"></i>
-              Tech Skills
-            </b>
-          </p>
-
-          <p>HTML, CSS & Responsive Design</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:75%">75%</div>
-          </div>
-
-          <p>JavaScript Fundamentals</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:65%">65%</div>
-          </div>
-
-          <p>DOM Manipulation</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:65%">65%</div>
-          </div>
-
-          <p>Tailwind CSS</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:65%">65%</div>
-          </div>
-
-          <p>React & TypeScript</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:50%">50%</div>
-          </div>
-
-          <p>Git & GitHub</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:65%">65%</div>
-          </div>
-
-          <br>
-
-          <!-- Transferable Skills -->
-          <p class="w3-large">
-            <b>
-              <i class="fa fa-cogs fa-fw w3-margin-right w3-text-indigo"></i>
-              Transferable Skills
-            </b>
-          </p>
-
-          <p>Problem Solving</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:85%">85%</div>
-          </div>
-
-          <p>Process Discipline</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:85%">85%</div>
-          </div>
-
-          <p>Quality Awareness</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:80%">80%</div>
-          </div>
-
-          <p>Teamwork & Communication</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:80%">80%</div>
-          </div>
-
-          <br>
-
-          <!-- Languages -->
-          <p class="w3-large w3-text-theme">
-            <b>
-              <i class="fa fa-globe fa-fw w3-margin-right w3-text-indigo"></i>
-              Languages
-            </b>
-          </p>
-
-          <p>Portuguese</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-indigo" style="height:24px;width:100%"></div>
-          </div>
-
-          <p>English</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-indigo" style="height:24px;width:65%"></div>
-          </div>
-
-          <br>
-
-          <!-- Current Focus -->
-          <p class="w3-large w3-text-theme">
-            <b>
-              <i class="fa fa-compass fa-fw w3-margin-right w3-text-indigo"></i>
-              Current Focus
-            </b>
-          </p>
-
-          <p>JavaScript Fundamentals</p>
-          <p>React Interfaces</p>
-          <p>TypeScript Basics</p>
-          <p>Tailwind CSS Layouts</p>
-          <p>GitHub Portfolio</p>
-          <p>Front-end Projects</p>
-
-          <br>
+          <a class="btn btn-secondary" href="https://wa.me/447777164892" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-whatsapp" aria-hidden="true"></i>
+            WhatsApp
+          </a>
         </div>
-      </div>
+      </section>
 
-      <br>
-      <!-- End Left Column -->
+      <aside class="hero-panel" aria-label="Profile summary">
+        <div class="hero-panel-item">
+          <span>Location</span>
+          <strong>Greystones, Co. Wicklow, Ireland</strong>
+        </div>
+
+        <div class="hero-panel-item">
+          <span>Portfolio</span>
+          <a href="https://jnramoos-hue.github.io/cv/" target="_blank" rel="noopener noreferrer">
+            jnramoos-hue.github.io/cv/
+          </a>
+        </div>
+
+        <div class="hero-panel-item">
+          <span>Current Focus</span>
+          <p>JavaScript fundamentals, React interfaces, TypeScript basics and Tailwind CSS layouts.</p>
+        </div>
+      </aside>
+
     </div>
+  </header>
 
-    <!-- Right Column -->
-    <div class="w3-twothird">
+  <section class="quick-grid" aria-label="Quick profile information">
 
-      <!-- About -->
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16">
-          <i class="fa fa-terminal fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>
-          About
+    <article class="quick-card">
+      <i class="fa fa-map-marker" aria-hidden="true"></i>
+      <span>Based in</span>
+      <strong>Ireland</strong>
+    </article>
+
+    <article class="quick-card">
+      <i class="fa fa-laptop" aria-hidden="true"></i>
+      <span>Focus</span>
+      <strong>Front-end Development</strong>
+    </article>
+
+    <article class="quick-card">
+      <i class="fa fa-code" aria-hidden="true"></i>
+      <span>Learning</span>
+      <strong>React + TypeScript</strong>
+    </article>
+
+    <article class="quick-card">
+      <i class="fa fa-github" aria-hidden="true"></i>
+      <span>Portfolio</span>
+      <strong>GitHub Projects</strong>
+    </article>
+
+  </section>
+
+  <div class="layout">
+
+    <aside class="sidebar" aria-label="Profile details">
+
+      <section class="sidebar-section">
+        <h2 class="sidebar-title">
+          <i class="fa fa-address-card" aria-hidden="true"></i>
+          Contact
         </h2>
+
+        <div class="contact-list">
+          <p class="contact-item">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:jramoos@outlook.com">jramoos@outlook.com</a>
+          </p>
+
+          <p class="contact-item">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <a href="tel:+353899547804">+353 89 954 7804</a>
+          </p>
+
+          <p class="contact-item">
+            <i class="fa fa-whatsapp" aria-hidden="true"></i>
+            <a href="https://wa.me/447777164892" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </p>
+
+          <p class="contact-item">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+            <a href="https://www.linkedin.com/in/jsilvarjnr/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jsilvarjnr</a>
+          </p>
+
+          <p class="contact-item">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <a href="https://github.com/jnramoos-hue" target="_blank" rel="noopener noreferrer">github.com/jnramoos-hue</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="sidebar-section">
+        <h2 class="sidebar-title">
+          <i class="fa fa-star" aria-hidden="true"></i>
+          Tech Stack
+        </h2>
+
+        <div class="pill-list">
+          <span class="pill">HTML5</span>
+          <span class="pill">CSS3</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">DOM</span>
+          <span class="pill">React</span>
+          <span class="pill">TypeScript</span>
+          <span class="pill">Tailwind CSS</span>
+          <span class="pill">Git</span>
+          <span class="pill">GitHub</span>
+          <span class="pill">UX/UI Basics</span>
+        </div>
+      </section>
+
+      <section class="sidebar-section">
+        <h2 class="sidebar-title">
+          <i class="fa fa-cogs" aria-hidden="true"></i>
+          Transferable Skills
+        </h2>
+
+        <div class="pill-list">
+          <span class="pill">Problem Solving</span>
+          <span class="pill">Process Discipline</span>
+          <span class="pill">Quality Awareness</span>
+          <span class="pill">Teamwork</span>
+          <span class="pill">Communication</span>
+          <span class="pill">Attention to Detail</span>
+        </div>
+      </section>
+
+      <section class="sidebar-section">
+        <h2 class="sidebar-title">
+          <i class="fa fa-globe" aria-hidden="true"></i>
+          Languages
+        </h2>
+
+        <div class="language-item">
+          <div class="language-header">
+            <strong>Portuguese</strong>
+            <span>Native</span>
+          </div>
+          <div class="bar">
+            <div class="bar-fill" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="language-item">
+          <div class="language-header">
+            <strong>English</strong>
+            <span>Intermediate</span>
+          </div>
+          <div class="bar">
+            <div class="bar-fill" style="width: 65%;"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sidebar-section">
+        <h2 class="sidebar-title">
+          <i class="fa fa-compass" aria-hidden="true"></i>
+          Current Focus
+        </h2>
+
+        <div class="pill-list">
+          <span class="pill">JavaScript Fundamentals</span>
+          <span class="pill">React Interfaces</span>
+          <span class="pill">TypeScript Basics</span>
+          <span class="pill">Tailwind Layouts</span>
+          <span class="pill">GitHub Portfolio</span>
+          <span class="pill">Front-end Projects</span>
+        </div>
+      </section>
+
+    </aside>
+
+    <section class="content">
+
+      <article class="content-card">
+        <div class="section-header">
+          <i class="fa fa-terminal" aria-hidden="true"></i>
+          <h2>About</h2>
+        </div>
 
         <p class="section-text">
           I am a Junior Front-end Developer in training, currently focused on building modern,
@@ -357,11 +946,9 @@
         </p>
 
         <div class="highlight-box">
-          <p class="section-text">
-            After earning trust and growing within production environments, I made a deliberate
-            decision: I did not want to limit my future to the same path. I wanted to keep evolving,
-            build a career in technology and create better opportunities for my life and my family.
-          </p>
+          After earning trust and growing within production environments, I made a deliberate
+          decision: I did not want to limit my future to the same path. I wanted to keep evolving,
+          build a career in technology and create better opportunities for my life and my family.
         </div>
 
         <p class="section-text">
@@ -369,14 +956,13 @@
           strong fundamentals, practice consistently, document my progress on GitHub and develop
           real portfolio evidence through front-end projects.
         </p>
-      </div>
+      </article>
 
-      <!-- Tech Transition Timeline -->
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16">
-          <i class="fa fa-road fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>
-          Transition Into Technology
-        </h2>
+      <article class="content-card">
+        <div class="section-header">
+          <i class="fa fa-road" aria-hidden="true"></i>
+          <h2>Transition Into Technology</h2>
+        </div>
 
         <div class="timeline">
 
@@ -418,14 +1004,13 @@
           </div>
 
         </div>
-      </div>
+      </article>
 
-      <!-- Academic Timeline -->
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16">
-          <i class="fa fa-graduation-cap fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>
-          Learning Timeline — FIAP
-        </h2>
+      <article class="content-card">
+        <div class="section-header">
+          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+          <h2>Learning Timeline — FIAP</h2>
+        </div>
 
         <p class="section-text">
           In the first months of my degree, I have been building a complete foundation that connects
@@ -443,11 +1028,13 @@
               intelligence foundations and the first steps of programming logic.
             </p>
 
-            <span class="tag">Software Engineering</span>
-            <span class="tag">Agile</span>
-            <span class="tag">Requirements</span>
-            <span class="tag">UML</span>
-            <span class="tag">Programming Logic</span>
+            <div class="tag-list">
+              <span class="tag">Software Engineering</span>
+              <span class="tag">Agile</span>
+              <span class="tag">Requirements</span>
+              <span class="tag">UML</span>
+              <span class="tag">Programming Logic</span>
+            </div>
           </div>
 
           <div class="timeline-item">
@@ -459,11 +1046,13 @@
               design systems and chatbot fundamentals.
             </p>
 
-            <span class="tag">Python</span>
-            <span class="tag">Functions</span>
-            <span class="tag">UX/UI</span>
-            <span class="tag">Figma</span>
-            <span class="tag">Chatbots</span>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">Functions</span>
+              <span class="tag">UX/UI</span>
+              <span class="tag">Figma</span>
+              <span class="tag">Chatbots</span>
+            </div>
           </div>
 
           <div class="timeline-item">
@@ -475,11 +1064,13 @@
               of organizing data correctly for software systems.
             </p>
 
-            <span class="tag">Data Modeling</span>
-            <span class="tag">SQL</span>
-            <span class="tag">Oracle</span>
-            <span class="tag">JSON</span>
-            <span class="tag">Data Integrity</span>
+            <div class="tag-list">
+              <span class="tag">Data Modeling</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Oracle</span>
+              <span class="tag">JSON</span>
+              <span class="tag">Data Integrity</span>
+            </div>
           </div>
 
           <div class="timeline-item">
@@ -491,243 +1082,153 @@
               JavaScript, DOM manipulation, modules, Git and GitHub.
             </p>
 
-            <span class="tag">HTML5</span>
-            <span class="tag">CSS3</span>
-            <span class="tag">Tailwind CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">DOM</span>
-            <span class="tag">GitHub</span>
+            <div class="tag-list">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">DOM</span>
+              <span class="tag">GitHub</span>
+            </div>
           </div>
 
         </div>
-      </div>
+      </article>
 
-      <!-- Experience -->
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16">
-          <i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>
-          Professional Experience
-        </h2>
-
-        <div class="w3-container">
-          <h5 class="w3-opacity">
-            <b>Process Operative — Stoats</b>
-          </h5>
-
-          <h6 class="w3-text-indigo">
-            <i class="fa fa-calendar fa-fw w3-margin-right"></i>
-            April 2025 - January 2026
-          </h6>
-
-          <p class="section-text">
-            Worked in a fast-paced food production environment focused on workflow coordination,
-            quality control, process consistency and daily operational targets.
-          </p>
-
-          <p class="section-text">
-            Supported workstation organization, followed production standards and contributed to
-            maintaining a continuous workflow under pressure.
-          </p>
-
-          <p class="section-text">
-            Developed transferable skills such as process thinking, attention to detail,
-            problem-solving, communication, teamwork and ownership.
-          </p>
-
-          <hr>
+      <article class="content-card">
+        <div class="section-header">
+          <i class="fa fa-suitcase" aria-hidden="true"></i>
+          <h2>Professional Experience</h2>
         </div>
 
-        <div class="w3-container">
-          <h5 class="w3-opacity">
-            <b>Warehouse Associate — Amazon</b>
-          </h5>
-
-          <h6 class="w3-text-indigo">
-            <i class="fa fa-calendar fa-fw w3-margin-right"></i>
-            October 2024 - February 2025
-          </h6>
-
-          <p class="section-text">
-            Worked in warehouse operations using scanning systems to support inventory tracking,
-            order processing and product flow.
-          </p>
-
-          <p class="section-text">
-            Performed picking, packing, item verification and quality checks in a high-volume
-            environment, developing accuracy, discipline and time management.
-          </p>
-
-          <hr>
+        <div class="experience-item">
+          <h3>Process Operative — Stoats</h3>
+          <p class="experience-date">April 2025 - January 2026</p>
+          <ul>
+            <li>Worked in a fast-paced food production environment focused on workflow coordination, quality control, process consistency and daily operational targets.</li>
+            <li>Supported workstation organization, followed production standards and contributed to maintaining a continuous workflow under pressure.</li>
+            <li>Developed transferable skills such as process thinking, attention to detail, problem-solving, communication, teamwork and ownership.</li>
+          </ul>
         </div>
 
-        <div class="w3-container">
-          <h5 class="w3-opacity">
-            <b>Packer — Stoats</b>
-          </h5>
-
-          <h6 class="w3-text-indigo">
-            <i class="fa fa-calendar fa-fw w3-margin-right"></i>
-            February 2024 - September 2024
-          </h6>
-
-          <p class="section-text">
-            Supported production flow, packaging accuracy and quality control in a food manufacturing
-            environment.
-          </p>
-
-          <p class="section-text">
-            Built a strong foundation in reliability, consistency, teamwork and attention to
-            operational standards.
-          </p>
-
-          <br>
+        <div class="experience-item">
+          <h3>Warehouse Associate — Amazon</h3>
+          <p class="experience-date">October 2024 - February 2025</p>
+          <ul>
+            <li>Worked in warehouse operations using scanning systems to support inventory tracking, order processing and product flow.</li>
+            <li>Performed picking, packing, item verification and quality checks in a high-volume environment, developing accuracy, discipline and time management.</li>
+          </ul>
         </div>
-      </div>
 
-      <!-- Education -->
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16">
-          <i class="fa fa-university fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>
-          Education
-        </h2>
+        <div class="experience-item">
+          <h3>Packer — Stoats</h3>
+          <p class="experience-date">February 2024 - September 2024</p>
+          <ul>
+            <li>Supported production flow, packaging accuracy and quality control in a food manufacturing environment.</li>
+            <li>Built a strong foundation in reliability, consistency, teamwork and attention to operational standards.</li>
+          </ul>
+        </div>
+      </article>
 
-        <div class="w3-container">
-          <h5 class="w3-opacity">
-            <b>Systems Analysis and Development — FIAP</b>
-          </h5>
+      <article class="content-card">
+        <div class="section-header">
+          <i class="fa fa-university" aria-hidden="true"></i>
+          <h2>Education</h2>
+        </div>
 
-          <h6 class="w3-text-indigo">
-            <i class="fa fa-calendar fa-fw w3-margin-right"></i>
-            January 2026 - February 2028
-          </h6>
-
+        <div class="experience-item">
+          <h3>Systems Analysis and Development — FIAP</h3>
+          <p class="experience-date">January 2026 - February 2028</p>
           <p class="section-text">
             Academic program focused on software development, web technologies, programming logic,
             software engineering, databases, UX/UI, Git, GitHub and systems analysis.
           </p>
-
-          <hr>
         </div>
 
-        <div class="w3-container">
-          <h5 class="w3-opacity">
-            <b>Technical Education in Electronics — ETEC</b>
-          </h5>
-
-          <h6 class="w3-text-indigo">
-            <i class="fa fa-calendar fa-fw w3-margin-right"></i>
-            November 2013 - November 2015
-          </h6>
-
+        <div class="experience-item">
+          <h3>Technical Education in Electronics — ETEC</h3>
+          <p class="experience-date">November 2013 - November 2015</p>
           <p class="section-text">
             Technical education focused on electronics, industrial processes, technical reasoning
             and problem-solving foundations.
           </p>
-
-          <br>
         </div>
-      </div>
+      </article>
 
-      <!-- Learning & Development -->
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16">
-          <i class="fa fa-laptop fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>
-          Learning & Development
-        </h2>
-
-        <div class="w3-container">
-          <h5 class="w3-opacity">
-            <b>Front-end Development Path</b>
-          </h5>
-
-          <p class="section-text">
-            Currently strengthening knowledge in HTML, CSS, JavaScript, responsive design,
-            DOM manipulation, Tailwind CSS, Git, GitHub, React and TypeScript.
-          </p>
-
-          <p class="section-text">
-            My current focus is to build clean, responsive and well-documented web interfaces,
-            while gradually developing a broader understanding of FullStack development.
-          </p>
-
-          <hr>
+      <article class="content-card">
+        <div class="section-header">
+          <i class="fa fa-laptop" aria-hidden="true"></i>
+          <h2>Learning & Development</h2>
         </div>
 
-        <div class="w3-container">
-          <h5 class="w3-opacity">
-            <b>Portfolio Development</b>
-          </h5>
+        <p class="section-text">
+          Currently strengthening knowledge in HTML, CSS, JavaScript, responsive design,
+          DOM manipulation, Tailwind CSS, Git, GitHub, React and TypeScript.
+        </p>
 
-          <p class="section-text">
-            I use GitHub as a public learning space to organize exercises, document progress and
-            publish practical projects related to front-end development and web technologies.
-          </p>
+        <p class="section-text">
+          My current focus is to build clean, responsive and well-documented web interfaces,
+          while gradually developing a broader understanding of FullStack development.
+        </p>
 
-          <br>
+        <p class="section-text">
+          I use GitHub as a public learning space to organize exercises, document progress and
+          publish practical projects related to front-end development and web technologies.
+        </p>
+      </article>
+
+      <article class="content-card">
+        <div class="section-header">
+          <i class="fa fa-rocket" aria-hidden="true"></i>
+          <h2>Professional Objective</h2>
         </div>
-      </div>
 
-      <!-- Professional Objective -->
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16">
-          <i class="fa fa-rocket fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>
-          Professional Objective
-        </h2>
+        <p class="section-text">
+          I am looking for junior, trainee or entry-level opportunities in Front-end Development,
+          Web Development, UI Development or Software Development.
+        </p>
 
-        <div class="w3-container">
-          <p class="section-text">
-            I am looking for junior, trainee or entry-level opportunities in Front-end Development,
-            Web Development, UI Development or Software Development.
-          </p>
+        <p class="section-text">
+          My goal is to contribute to practical, organized and user-centered web solutions while
+          continuing to grow technically through real projects, teamwork and continuous learning.
+        </p>
+      </article>
 
-          <p class="section-text">
-            My goal is to contribute to practical, organized and user-centered web solutions while
-            continuing to grow technically through real projects, teamwork and continuous learning.
-          </p>
+    </section>
+  </div>
 
-          <br>
-        </div>
-      </div>
+  <footer class="footer">
+    <h2>Let’s connect</h2>
+    <p>Open to junior, trainee and entry-level opportunities in Front-end and Web Development.</p>
 
-      <!-- End Right Column -->
+    <div class="footer-social">
+      <a href="https://github.com/jnramoos-hue" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="footer-link">
+        <i class="fa fa-github" aria-hidden="true"></i>
+        <span>GitHub</span>
+      </a>
+
+      <a href="https://www.linkedin.com/in/jsilvarjnr/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="footer-link">
+        <i class="fa fa-linkedin" aria-hidden="true"></i>
+        <span>LinkedIn</span>
+      </a>
+
+      <a href="mailto:jramoos@outlook.com" aria-label="Email" class="footer-link">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <span>Email</span>
+      </a>
+
+      <a href="https://wa.me/447777164892" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="footer-link">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+        <span>WhatsApp</span>
+      </a>
     </div>
 
-    <!-- End Grid -->
-  </div>
+    <p class="footer-note">
+      Online CV built with semantic HTML, internal CSS and responsive design principles.
+    </p>
+  </footer>
 
-  <!-- End Page Container -->
-</div>
-
-<!-- Footer -->
-<footer class="w3-container w3-indigo w3-center w3-margin-top">
-  <p>Find me online</p>
-
-  <div class="footer-social">
-    <a href="https://github.com/jnramoos-hue" target="_blank" aria-label="GitHub" class="footer-link">
-      <i class="fa fa-github footer-icon w3-hover-opacity"></i>
-      <span>GitHub</span>
-    </a>
-
-    <a href="https://www.linkedin.com/in/jsilvarjnr/" target="_blank" aria-label="LinkedIn" class="footer-link">
-      <i class="fa fa-linkedin footer-icon w3-hover-opacity"></i>
-      <span>LinkedIn</span>
-    </a>
-
-    <a href="mailto:jramoos@outlook.com" aria-label="Email" class="footer-link">
-      <i class="fa fa-envelope footer-icon w3-hover-opacity"></i>
-      <span>Email</span>
-    </a>
-
-    <a href="https://wa.me/447777164892" target="_blank" aria-label="WhatsApp" class="footer-link">
-      <i class="fa fa-whatsapp footer-icon w3-hover-opacity"></i>
-      <span>WhatsApp</span>
-    </a>
-  </div>
-
-  <p>
-    Online CV built with HTML, CSS and W3.CSS
-  </p>
-</footer>
+</main>
 
 </body>
 
